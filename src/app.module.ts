@@ -5,6 +5,8 @@ import { CreateAccountController } from './controllers/create-account.controller
 import { envSchema } from './env';
 import { AuthModule } from './auth/auth.module';
 import { AuthController } from './controllers/auth.controller';
+import { CreateQuestionController } from './controllers/create-question.controller';
+import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller';
 
 @Module({
   imports: [
@@ -14,7 +16,12 @@ import { AuthController } from './controllers/auth.controller';
     }),
     AuthModule,
   ],
-  controllers: [CreateAccountController, AuthController],
+  controllers: [
+    CreateAccountController,
+    AuthController,
+    CreateQuestionController,
+    FetchRecentQuestionsController,
+  ],
   providers: [PrismaService],
 })
 export class AppModule {}

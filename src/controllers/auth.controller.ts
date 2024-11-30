@@ -12,12 +12,12 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { z } from 'zod';
 import { compare } from 'bcryptjs';
 
-const authBodySchema = z.object({
+const requestSchema = z.object({
   email: z.string().email(),
   password: z.string(),
 });
 
-type AuthBodySchema = z.infer<typeof authBodySchema>;
+type Request = z.infer<typeof requestSchema>;
 
 @Controller('sessions')
 export class AuthController {
@@ -28,8 +28,8 @@ export class AuthController {
 
   @Post()
   @HttpCode(200)
-  @UsePipes(new ZodValidationPipe(authBodySchema))
-  async Handle(@Body() body: AuthBodySchema) {
+  @UsePipes(new ZodValidationPipe(requestSchema))
+  async Handle(@Body() body: Request) {
     const { email, password } = body;
 
     const user = await this.prisma.user.findUnique({ where: { email } });

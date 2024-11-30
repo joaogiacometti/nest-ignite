@@ -6,6 +6,17 @@ Content-Type: application/json
 
 {
     "name": "test",
-    "email": "testin3g.com@gmail.com",
+    "email": "test.com123@gmail.com",
+    "password": "123456"
+}
+
+###
+
+# @name auth
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "test.com123@gmail.com",
     "password": "123456"
 }

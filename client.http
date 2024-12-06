@@ -32,12 +32,12 @@ Authorization: Bearer {{authToken}}
 {
     "title": "test",
     "content": "test",
-    "slug": "1234567w"
+    "slug": "test"
 }
 
 ###
 
 # @name get_questions
-GET {{baseUrl}}/questions?page=3
+GET {{baseUrl}}/questions?page=2
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
